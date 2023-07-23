@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-python-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-python-microservice
+  template:
+    metadata:
+      labels:
+        app: my-python-microservice
+    spec:
+      containers:
+      - name: my-python-microservice
+        image: rbillon59/python-sample-app:latest
+        ports:
+        - containerPort: 5000
